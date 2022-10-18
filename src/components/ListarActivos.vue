@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>LISTAR</h2>
+        <h2>Elija un Área</h2>
         
     </div>
 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">

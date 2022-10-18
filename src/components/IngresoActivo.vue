@@ -49,10 +49,10 @@
                         <small id= "helpId" class="form-text text-muted">Ingrese el nombre del encargado</small>
                     </div> 
                     <div class = "btn-group" role = "group" aria-label="">
-                        <button type="submit" class="btn btn-success">Agregar</button>
-                        <button type="submit" class="btn btn-warning">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Agregar</button>                        
+                        <router-link to="/" class="btn btn-warning">Cancelar</router-link>
                     </div>
-                                                                                
+                                                                              
                 </form>
             </div>
         </div>
@@ -67,8 +67,22 @@ export default {
         }
     },
     methods:{
-        agregarPaciente(){
-            console.log(this.activo);
+        agregarActivo(){
+            //console.log(this.activo);
+            var datosEnviar = {nombre: this.activo.nombre , marca:this.activo.marca , modelo: this.activo.modelo , serial: this.activo.serial , doc_resp:this.activo.doc_resp , nom_resp: this.activo.nom_resp}
+            fetch('http://localhost/vue/?insertar=1', {
+                method: "POST",
+                body: JSON.stringify(datosEnviar),
+                mode: 'no-cors'
+                               
+            })           
+            .then(respuesta=>respuesta.json())
+            .then(console.log)
+            .then((datosRespuesta)=>{
+               console.log(datosRespuesta)                
+            })
+            .catch(console.log)      
+            
         }
     }
 }

@@ -28,8 +28,10 @@
                     <td>{{activo.doc_resp}}</td>
                     <td>{{activo.nom_resp}}</td>
                     <td>
-                        <a name = "" id = "" class= "btn btn-info" href = "#" role="button">Editar</a>
-                        <a name = "" id = "" class= "btn btn-danger" href = "#" role="button">Borrar</a>
+                         <div class="btn-group" role="group" aria-label="">
+                            <router-link :to="{name:'EditarActivoBio' , param:{id:activo.id}}" class= "btn btn-info">Editar</router-link>
+                            <button type="button" v-on:click="borrarActivo(activo.id)" class="btn btn-danger">Borrar</button>                            
+                         </div>                      
                     </td>
                 </tr>
                 <tr>
@@ -62,17 +64,31 @@ export default {
         consultarActivos(){
             fetch('http://localhost/vue/index.php/?area=1')
             .then(respuesta=>respuesta.json())
-            .then((datosRespuesta=>{
+            .then((datosRespuesta)=>{
                 console.log(datosRespuesta)
                 this.activos = []
                 if(typeof datosRespuesta[0].success === 'undefined'){
                     this.activos = datosRespuesta;
                 }
             }
-            ))
+            )
             .catch(console.log)
 
+        },
+        borrarActivo(id){
+            console.log(id)
+            fetch('http://localhost/vue/index.php/?t=1&borrar='+id)
+            .then(respuesta=>respuesta.json())
+            .then((datosRespuesta)=>{
+                console.log(datosRespuesta)
+                window.location.href = '#'
+            }
+            )
+            .catch(console.log)            
+
         }
+        
+        
 
     }
 }
