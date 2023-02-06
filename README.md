@@ -1,6 +1,6 @@
 # gestion2
 
-Proyecto para el curso Ingeniría de Software consistente en una plataforma web para la gestión de salas de cirugía
+Proyecto para el curso Ingeniería de Software consistente en una plataforma web para la gestión de salas de cirugía
 
 ## Project setup
 ```
