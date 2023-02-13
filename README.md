@@ -1,6 +1,5 @@
-# gestion2
+# vueCRUD
 
-Proyecto para el curso Ingeniería de Software consistente en una plataforma web para la gestión de salas de cirugía
 
 ## Project setup
 ```
